@@ -6,8 +6,8 @@
 //
 // Drag the Web-client folder on to the Terminal
 // and install following stuff:
-// - install CLI locally: (sudo) npm install -g grunt-cli
 // - install Grunt locally: (sudo) npm install grunt
+// - install CLI locally: (sudo) npm install -g grunt-cli
 // - install all dependencies: (sudo) npm install
 //
 // All done!
@@ -26,7 +26,7 @@
 // https://github.com/intesso/connect-livereload
 //
 
-var LIVERELOAD_PORT = 35725;
+var LIVERELOAD_PORT = 35727;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function(connect, dir) {
     return connect.static(require('path').resolve(dir));
@@ -76,6 +76,7 @@ module.exports = function(grunt) {
 				},
 				files: [
 					'<%= config.development %>/*.html',
+					'<%= config.development %>/*.htaccess',
 					'<%= config.development %>/templates/{,*/}{,*/}{,*/}{,*/}{,*/}*.html',
 					'<%= config.development %>/img/{,*/}{,*/}{,*/}{,*/}{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 					'<%= config.development %>/icons/*.{png,jpg,jpeg,gif,ico}',
@@ -96,7 +97,7 @@ module.exports = function(grunt) {
 
 		connect: {
 			options: {
-				port: 9090,
+				port: 9000,
 				// change this to '0.0.0.0' to access the server from outside
 				// change this to 'localhost' to access only from localhost
 				hostname: '0.0.0.0'
@@ -232,8 +233,10 @@ module.exports = function(grunt) {
 						'*.{ico,png,txt}',
 						'img/{,*/}{,*/}{,*/}{,*/}{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 						'fonts/*',
+						'!fonts/__sources/{,*/}{,*/}{,*/}{,*/}{,*/}',
 						'js/libs/*',
-						'!js/libs/require-text-2.0.10.min.js'
+						'!js/libs/require-text-2.0.10.min.js',
+						'*.js'
 					]
 				},
 				// Copy javascript modules & templates as
@@ -307,18 +310,18 @@ module.exports = function(grunt) {
 				options: {
 					baseUrl: '.tmp/js',
 					preserveLicenseComments: false,
-					mainConfigFile: '.tmp/js/config.js',
-					out: '<%= config.production %>/js/config.js',
-					name: 'config',
+					mainConfigFile: '.tmp/js/config-require.js',
+					out: '<%= config.production %>/js/config-require.js',
+					name: 'config-require',
 					// When serving 3rd party libs from a CDN you need to
 					// exclude them from the build by adding 'paths:{ referrence: empty: }'
 					// See development/js/config.js for more info
 					paths: {
-						'io': 'empty:',
-						'jquery': 'empty:',
-						'underscore': 'empty:',
-						'backbone': 'empty:',
-						'handlebars': 'empty:'
+						'../config': 'empty:'//,
+						//'jquery': 'empty:',
+						//'underscore': 'empty:',
+						//'backbone': 'empty:',
+						//'handlebars': 'empty:'
 					}
 				}
 			}
@@ -358,7 +361,8 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'<%= config.production %>/css/styles.css': [
-						'.tmp/css/styles.css', '<%= config.development %>/css/styles.css'
+					    '.tmp/css/{,*/}{,*/}{,*/}{,*/}{,*/}*.css',
+					    '<%= config.development %>/css/{,*/}{,*/}{,*/}{,*/}{,*/}*.css'
 					]
 				}
 			}
