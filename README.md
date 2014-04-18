@@ -1,5 +1,7 @@
-Grunt Backbone  front-end boilerplat
+THE SOUND YOU NEED 
 ===================
+
+The sound you need allows you to search for any music based on the Soundcloud music Api 
 
 Repository for frontend development with RequireJS, including Javascript, Backbone,  RespondJS, HTML, 
 Handlebars, SASS, Compass and assets. The frontend can be automatically built and optimized 
