@@ -2,11 +2,12 @@ define([
 
 	'backbone',
 	'app',
+	'views/home'
 
 	
 
 
-], function(Backbone, App) {
+], function(Backbone, App, HomeView) {
 
 	'use strict';
 
@@ -57,8 +58,8 @@ define([
 
         root: function() {
 
-        	console.log('run this root');
-         
+        	this.create('home', HomeView);
+        
         },
 
 

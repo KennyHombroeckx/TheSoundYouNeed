@@ -6,10 +6,11 @@ define([
     'app',
 
     'utils/handlebars-helpers',
-    '../config'
+    '../config',
+    'soundcloud'
 
 
-], function(Backbone, Router, Socket, App) {
+], function(Backbone, Router, Socket, App, Soundcloud) {
 
     'use strict';
 
@@ -31,8 +32,11 @@ define([
     //
 
     App.SERVER = Config.SERVER;
+    App.SOUNDCLOUDID = Config.SOUNDCLOUDID;
 
+    //App.SOUNDCLOUD = 
 
+    
     //
     // FETCH API DATA --------------------------------------------------------
     // These are some examples of how to make API-calls

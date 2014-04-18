@@ -14,6 +14,8 @@ define(function() {
 	App.ROUTER = {};
 	App.VIEWS = {};
 	App.DATA = {};
+	App.SOUNDCLOUD = {};
+
 
 
 

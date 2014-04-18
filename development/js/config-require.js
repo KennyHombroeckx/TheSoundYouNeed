@@ -15,8 +15,10 @@ require.config({
 	paths: {
 		'jquery'     : 'libs/jquery-1.10.2.min',  	
 		'underscore' : 'libs/underscore-1.5.2.min',
+		'jquery_ui'  : 'libs/jquery-ui-1.10.4.custom.min',
 		'backbone'   : 'libs/backbone-1.1.0.min',
 		'handlebars' : 'libs/handlebars.min',
+		'soundcloud' : 'http://connect.soundcloud.com/sdk',
 		'text'       : 'libs/require-text-2.0.10.min',
 		'templates'  : '../templates',
 		'app'        : 'config-app'
@@ -35,6 +37,11 @@ require.config({
 
 		'handlebars': {
 			exports : 'Handlebars'
+		},
+
+		'jquery_ui' : {
+			deps    : ['jquery'],
+			exports : 'Jquery_ui'
 		}
 
 	}

@@ -1,0 +1,59 @@
+
+//
+// SEARCH AUTOCOMPLETE ---------------------------------------
+//
+
+.ui-autocomplete {
+
+	padding: 0 0 30px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 1px solid #CCC;
+	border-top: none;
+	background: white;
+	position: absolute;
+	margin-top: -9px;
+	z-index: 100;
+	line-height: 1.5;
+}
+
+
+.ui-autocomplete li:first-child {
+	color: #666;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	padding: 8px 12px;
+	margin: 1em 0 0.6em;
+	background-color: #ccc;
+}
+
+
+.ui-autocomplete a {
+	color: #ccc;
+	font-size: 0.9em;
+	padding: 4px 12px;
+	display: block;
+	cursor: pointer;
+
+	&:hover, &:focus {
+		color: white;
+		background-color: #5a9541;
+		@include transition(all 75ms ease-out);
+	}
+
+}
+
+.ui-autocomplete a.ui-state-focus {
+	color: white;
+	background-color: #5a9541;
+	@include transition(all 75ms ease-out);
+}
+
+.ui-autocomplete-category .icon-person:before {
+	
+	font-size: 1.5em;
+	position: relative;
+	top: 3px;
+	padding-right: 3px;
+	
+}
